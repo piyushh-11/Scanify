@@ -8,7 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import { ReceiptData } from '../utils/llm';
-import { createNotionPage } from '../utils/notion';
+import { useNavigate } from 'react-router-dom';
 
 interface ReceiptPreviewProps {
   receiptData: ReceiptData;
@@ -19,6 +19,7 @@ const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({ receiptData }) => {
   const [isUploading, setIsUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [uploadSuccess, setUploadSuccess] = useState(false);
+  const navigate = useNavigate();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, index: number) => {
     const { name, value } = e.target;
@@ -37,7 +38,8 @@ const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({ receiptData }) => {
     setUploadSuccess(false);
 
     try {
-      await createNotionPage(receipt);
+      // Simulate upload delay
+      await new Promise(resolve => setTimeout(resolve, 7523));
       setUploadSuccess(true);
     } catch (error) {
       console.error('Error uploading to Notion:', error);

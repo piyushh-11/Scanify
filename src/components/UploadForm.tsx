@@ -34,29 +34,82 @@ export const UploadForm: React.FC = () => {
   });
 
   return (
-    <div className="max-w-2xl mx-auto p-4">
-      <div
-        {...getRootProps()}
-        className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors
-          ${isDragActive ? 'border-blue-500 bg-blue-50' : 'border-gray-300 hover:border-gray-400'}`}
-      >
-        <input {...getInputProps()} />
-        <p className="text-gray-600">
-          {isDragActive ? 'Drop the receipt here' : 'Drag and drop a receipt image, or click to select'}
-        </p>
-      </div>
-
-      {error && (
-        <div className="mt-4 text-red-500 text-center">{error}</div>
-      )}
-
-      {receiptData && (
-        <div className="mt-4 text-left">
-          <pre className="bg-gray-50 p-4 rounded">
-            {JSON.stringify(receiptData, null, 2)}
-          </pre>
+    <div style={{
+      padding: '20px',
+      fontFamily: 'IBMPlexMono, monospace',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      backgroundImage: 'url(/didd.svg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
+    }}>
+      <div style={{ width: '40%' }}>
+        <h2 style={{ textAlign: 'center', fontSize: '32px', fontWeight: 'bold', marginBottom: '20px' }}>
+          Upload Receipt
+        </h2>
+        <div
+          {...getRootProps()}
+          style={{
+            border: `2px dashed ${isDragActive ? '#007bff' : '#ccc'}`,
+            borderRadius: '8px',
+            padding: '40px',
+            textAlign: 'center',
+            cursor: 'pointer',
+            backgroundColor: isDragActive ? 'rgba(0, 123, 255, 0.1)' : 'white',
+            transition: 'all 0.2s ease',
+            fontFamily: 'IBMPlexMono, monospace'
+          }}
+        >
+          <input {...getInputProps()} />
+          <p style={{ 
+            color: isDragActive ? '#007bff' : '#666',
+            fontSize: '16px',
+            margin: 0
+          }}>
+            {isDragActive ? 'Drop the receipt here' : 'Drag and drop a receipt image, or click to select'}
+          </p>
         </div>
-      )}
+
+        {error && (
+          <div style={{ 
+            marginTop: '20px', 
+            color: '#dc3545', 
+            textAlign: 'center',
+            fontFamily: 'IBMPlexMono, monospace'
+          }}>
+            {error}
+          </div>
+        )}
+
+        {receiptData && (
+          <div style={{ 
+            marginTop: '20px',
+            backgroundColor: 'white',
+            padding: '20px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+          }}>
+            <h3 style={{ 
+              fontSize: '20px', 
+              fontWeight: 'bold', 
+              marginBottom: '15px',
+              fontFamily: 'IBMPlexMono, monospace'
+            }}>
+              Receipt Data
+            </h3>
+            <pre style={{ 
+              fontFamily: 'IBMPlexMono, monospace',
+              fontSize: '14px',
+              whiteSpace: 'pre-wrap',
+              wordBreak: 'break-word'
+            }}>
+              {JSON.stringify(receiptData, null, 2)}
+            </pre>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
