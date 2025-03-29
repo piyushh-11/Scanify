@@ -1,16 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   return (
-    <div>Navbar</div>
-  )
-}
+    <nav className="bg-gray-800 p-4">
+      <div className="container mx-auto">
+        <h1 className="text-white text-xl font-bold">My App</h1>
+      </div>
+    </nav>
+  );
+};
 
-Navbar.propTypes = {
-    isLoggedIn: PropTypes.bool.isRequired,
-    userName: PropTypes.string,
-    onLogout: PropTypes.func.isRequired,
-}
-
-export default Navbar
+export default Navbar;
