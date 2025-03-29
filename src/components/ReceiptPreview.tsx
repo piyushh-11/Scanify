@@ -38,8 +38,6 @@ const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({ receiptData }) => {
     setUploadSuccess(false);
 
     try {
-      // Simulate upload delay
-      await new Promise(resolve => setTimeout(resolve, 7523));
       setUploadSuccess(true);
     } catch (error) {
       console.error('Error uploading to Notion:', error);
