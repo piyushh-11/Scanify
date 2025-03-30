@@ -24,6 +24,7 @@ Scanify is a web application designed to simplify personal expense tracking. Upl
 
 ---
 
+
 ## 🛠 Tech Stack
 
 | Task                   | Tool                           |
@@ -35,6 +36,11 @@ Scanify is a web application designed to simplify personal expense tracking. Upl
 | **AI Extraction**      | OpenAI GPT-4o                  |
 | **Database**           | Supabase DB                    |
 | **Notion Integration** | Notion SDK                     |
+
+---
+
+## 🎥 Demo  
+Watch our demo on [YouTube](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
 
 ---
 
