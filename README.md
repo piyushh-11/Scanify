@@ -40,7 +40,7 @@ Scanify is a web application designed to simplify personal expense tracking. Upl
 ---
 
 ## 🎥 Demo  
-Watch our demo on [YouTube](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+Watch our demo on [YouTube](https://youtu.be/K4qekGSgth4)
 
 ---
 
