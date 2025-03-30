@@ -1,54 +1,51 @@
-# React + TypeScript + Vite
+# Scanify - Track Your Spending Effortlessly
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Scanify is a web application designed to simplify personal expense tracking. Upload receipts or spending screenshots, and our AI-powered system extracts order details, categorizes expenses, and integrates them into your Notion dashboard.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+### Frontend (React + TailwindCSS)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Landing Page**: Showcases the product workflow ("Snap → Categorize → Track")
+- **Upload Page**:
+  - Upload image files (JPG/PNG) of receipts
+  - Optional fields for custom spending notes and date overrides
+  - Displays categorized expense data after processing
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Backend & Core Functionality
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Image Processing**: Extracts text using OCR (Tesseract.js)
+- **AI Categorization**: OpenAI GPT-4o structures itemized spending data and assigns categories (e.g., Food, Groceries, Entertainment)
+- **User Authentication**: Supabase Auth for secure logins
+- **Database Storage**: Supabase DB to store user-specific data and Notion integration credentials
+- **Notion Integration**: Logs extracted spending data into a Notion database
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🛠 Tech Stack
+
+| Task                   | Tool                           |
+| ---------------------- | ------------------------------ |
+| **Frontend UI**        | React, TypeScript, TailwindCSS |
+| **Auth**               | Supabase Auth                  |
+| **Backend**            | Node.js/Next.js API routes     |
+| **OCR**                | Tesseract.js                   |
+| **AI Extraction**      | OpenAI GPT-4o                  |
+| **Database**           | Supabase DB                    |
+| **Notion Integration** | Notion SDK                     |
+
+---
+
+## 🏆 Achievements
+
+**2nd Place - Best UI/UX** at the **TACS Build4Good Hackathon**
+
+---
+
+## 🔍 How It Works
+
+1. Upload a receipt or spending screenshot
+2. AI extracts and categorizes expenses
+3. Data is saved to Notion for easy tracking
